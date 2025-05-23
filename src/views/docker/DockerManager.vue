@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { Picture, Box, Setting } from '@element-plus/icons-vue';
+import { Picture, Box, Setting, Document } from '@element-plus/icons-vue';
 
 const router = useRouter();
 const route = useRoute();
@@ -18,6 +18,8 @@ onMounted(() => {
     activeMenu.value = 'containers';
   } else if (path.includes('/config')) {
     activeMenu.value = 'config';
+  } else if (path.includes('/dockerfile')) {
+    activeMenu.value = 'dockerfile';
   }
 });
 
@@ -29,6 +31,8 @@ const handleMenuSelect = (key: string) => {
     router.push('/docker/containers');
   } else if (key === 'config') {
     router.push('/docker/config');
+  } else if (key === 'dockerfile') {
+    router.push('/docker/dockerfile');
   }
 };
 </script>
@@ -61,6 +65,12 @@ const handleMenuSelect = (key: string) => {
                 <Setting />
               </el-icon>
               <span>连接配置</span>
+            </el-menu-item>
+            <el-menu-item index="dockerfile">
+              <el-icon>
+                <Document />
+              </el-icon>
+              <span>Dockerfile管理</span>
             </el-menu-item>
           </el-menu>
         </el-aside>

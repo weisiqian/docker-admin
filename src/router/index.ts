@@ -43,6 +43,11 @@ const router = createRouter({
           name: 'DockerConfig',
           component: () => import('@/views/docker/DockerConfig.vue'),
         },
+        {
+          path: 'dockerfile',
+          name: 'DockerfileManager',
+          component: () => import('@/views/docker/DockerfileManager.vue'),
+        },
       ],
     },
   ],
